@@ -572,7 +572,7 @@ demoJson.forEach((elements) => {
     // console.log(3);
     // console.log(tempDataSet);
   });
-  console.log(tempDataSet);
+  //   console.log(tempDataSet);
   //   console.log(4);
   finalJson.push(tempDataSet);
 });
