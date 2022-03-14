@@ -14,6 +14,8 @@
 //   }
 // );
 
+const js2xmlparser = require("js2xmlparser");
+
 demoJson = [
   {
     "Account: Existence of Carer": "No",
@@ -576,4 +578,23 @@ demoJson.forEach((elements) => {
   //   console.log(4);
   finalJson.push(tempDataSet);
 });
+// console.log(typeof finalJson);
 console.log(finalJson);
+
+// finalJson = JSON.parse({ finalJson });
+
+//JOI VALIDATION FOR JSON
+// function validator(obj) {
+//   console.log(obj);
+// }
+
+//JSON to XML
+// finalJson.forEach((elements) => {
+//   console.log(JSON.stringify(elements));
+//   //   elements.forEach((element) => {
+//   //     console.log(js2xmlparser.parse("testXML", JSON.stringify(element)));
+//   //   });
+//   //   console.log(js2xmlparser.parse("testXML", JSON.stringify(elements)));
+// });
+// // console.log(JSON.stringify(finalJson));
+// // console.log(js2xmlparser.parse("testXML", JSON(finalJson)));
