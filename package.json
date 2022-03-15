@@ -4,6 +4,7 @@
     "joi": "^17.6.0",
     "js2xmlparser": "^4.0.2",
     "xlsx": "^0.18.3",
-    "xlsx-to-json": "^0.3.0"
+    "xlsx-to-json": "^0.3.0",
+    "xml2js": "^0.4.23"
   }
 }
