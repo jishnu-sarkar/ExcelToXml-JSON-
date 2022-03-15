@@ -6,24 +6,26 @@ const demoJson = require("./output.json");
 // console.log(typeof demoJson);
 // console.log(Object.values(demoJson));
 
-let finalJson = [];
+let finalJson = { Clients: {} };
 
-let tempDataSet = { Account: {} };
+let tempDataSet = {};
+let count = 0;
 demoJson.forEach((elements) => {
   //   //   console.log(elements);
+  tempDataSet[`Account${++count}`] = {};
   Object.keys(elements).forEach((element) => {
     // console.log(element);
     // console.log(element + ":" + elements[element]);
     // console.log(typeof element);
     if (element.includes("Account:")) {
-      tempDataSet.Account[
+      tempDataSet[`Account${count}`][
         element.replace("Account:", "").trim().replace(/ /g, "")
       ] = elements[element];
       //   console.log(element);
       //   console.log(1);
       //   // console.log(demoJson[element]);
     } else {
-      tempDataSet[element.replace(/ /g, "")] = elements[element];
+      // tempDataSet[element.replace(/ /g, "")] = elements[element];
       //   console.log(element);
       //   console.log(2);
     }
@@ -32,7 +34,7 @@ demoJson.forEach((elements) => {
   });
   //   console.log(tempDataSet);
   //   console.log(4);
-  finalJson.push(tempDataSet);
+  finalJson.Clients = tempDataSet;
 });
 console.log(typeof finalJson);
 console.log(finalJson);
@@ -58,26 +60,26 @@ console.log(finalJson);
 // // console.log(JSON.stringify(finalJson));
 // // console.log(js2xmlparser.parse("testXML", JSON(finalJson)));
 
-// const obj = { MS: { ts: 3423523, isOk: false, errors: [] } };
+const obj = { MS: { ts: 3423523, isOk: false, errors: [] } };
 // const checkJson = {
 //   Account: {
-//     Existence_of_Carer: "No",
-//     Account_Name: "Bill Whittle",
-//     Account_Type: "Private",
+//     ExistenceofCarer: "No",
+//     AccountName: "Bill Whittle",
+//     AccountType: "Private",
 //     Birthdate: "11/8/31",
 //     Gender: "Male",
-//     Country_of_Birth: "England",
-//     Primary_Language: "English",
-//     ATSI_Origin: "Not stated/Inadequately described",
+//     CountryofBirth: "England",
+//     PrimaryLanguage: "English",
+//     ATSIOrigin: "Not stated/Inadequately described",
 //     Disability: "None",
-//     Accommodation_Type: "Private residence - client or family owned/purchasing",
-//     Household_Composition: "Group (related adults)",
-//     DVA_Card_Status: "No DVA entitlement",
+//     AccommodationType: "Private residence - client or family owned/purchasing",
+//     HouseholdComposition: "Group (related adults)",
+//     DVACardStatus: "No DVA entitlement",
 //   },
 //   Date: "5/18/21",
 //   Type: "Dietician",
 //   Hours: "",
-//   Consult_Type: "Standard",
+//   ConsultType: "Standard",
 //   Address: "10 Byrnes St, Rozelle NSW 2039",
 // };
 
