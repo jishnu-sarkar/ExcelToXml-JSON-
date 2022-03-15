@@ -111,5 +111,7 @@ let builder = require("xmlbuilder");
 //   },
 // };
 
-var xml = builder.create(finalJson).end({ pretty: true });
+var xml = builder
+  .create(finalJson, { encoding: "utf-8" })
+  .end({ pretty: true });
 console.log(xml);
