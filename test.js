@@ -10,11 +10,11 @@ let count = 0;
 
 let finalJson = { Clients: { Client: [] } };
 
-let tempDataSet = {};
+// let tempDataSet = {};
 
 demoJson.forEach((elements) => {
   //   //   console.log(elements);
-  tempDataSet.Account = {};
+  let tempDataSet = { Account: {} };
   Object.keys(elements).forEach((element) => {
     // console.log(element);
     // console.log(element + ":" + elements[element]);
@@ -35,13 +35,14 @@ demoJson.forEach((elements) => {
     // console.log(3);
     // console.log(tempDataSet);
   });
-  console.log(tempDataSet);
+  // console.log(tempDataSet);
+  // console.log(123);
   //   console.log(4);
   // finalJson.Clients[`Client${count}`] = tempDataSet;
   finalJson.Clients.Client.push(tempDataSet);
 });
-console.log(typeof finalJson);
 console.log(finalJson);
+// console.log(typeof finalJson);
 // tempFinalJson = Object.assign({}, ...finalJson);
 // console.log(tempFinalJson);
 // console.log(js2xmlparser.parse("testXML", JSON.stringify(tempFinalJson)));
@@ -111,7 +112,7 @@ let builder = require("xmlbuilder");
 //   },
 // };
 
-var xml = builder
+const xml = builder
   .create(finalJson, { encoding: "utf-8" })
   .end({ pretty: true });
-console.log(xml);
+console.log(xml.toString());
