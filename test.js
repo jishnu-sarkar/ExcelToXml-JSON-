@@ -8,7 +8,6 @@ var sheet_name_list = workbook.SheetNames;
 var xlData = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[0]], {
   header: 0,
   defval: "",
-  sheetStubs: true,
   raw: false,
 });
 console.log(xlData);
@@ -23,12 +22,10 @@ xlData.forEach((elements) => {
 
   Object.keys(elements).forEach((element) => {
     if (element.includes("Account:")) {
-      // if (elements[element] === "") console.log(1);
       tempDataSet.Account[
         element.replace("Account:", "").trim().replace(/ /g, "")
       ] = elements[element];
     } else {
-      // if (elements[element] === "") console.log(2);
       tempDataSet[element.replace(/ /g, "")] = elements[element];
     }
   });
