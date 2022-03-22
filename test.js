@@ -1,3 +1,10 @@
+
+const js2xmlparser = require("js2xmlparser");
+const xml2js = require("xml2js");
+
+const demoJson = require("./output.json");
+
+
 xlsxj = require("xlsx-to-json");
 
 const check = xlsxj(
@@ -29,31 +36,25 @@ let finalJson = { Clients: { Client: [] } };
 // let tempDataSet = {};
 
 demoJson.forEach((elements) => {
-  //   //   console.log(elements);
-  let tempDataSet = { Account: {} };
+
+  tempDataSet.Account = {};
+
   Object.keys(elements).forEach((element) => {
-    // console.log(element);
-    // console.log(element + ":" + elements[element]);
-    // console.log(typeof element);
-    // tempDataSet.Account = {};
     if (element.includes("Account:")) {
       tempDataSet.Account[
         element.replace("Account:", "").trim().replace(/ /g, "")
       ] = elements[element];
-      //   console.log(element);
-      //   console.log(1);
-      //   // console.log(demoJson[element]);
     } else {
       tempDataSet[element.replace(/ /g, "")] = elements[element];
-      //   console.log(element);
-      //   console.log(2);
     }
-    // console.log(3);
-    // console.log(tempDataSet);
   });
+
+  console.log(tempDataSet);
   finalJson.Clients.Client.push(tempDataSet);
 });
-// console.log(finalJson);
+console.log(typeof finalJson);
+console.log(finalJson);
+
 
 //-------------------------------------------------------
 
@@ -74,4 +75,7 @@ const xml = builder
   .create(finalJson, { encoding: "utf-8" })
   .end({ pretty: true });
 
-console.log(xml.toString());
+console.log(xml);
+
+//---------------------------------------------------------
+
