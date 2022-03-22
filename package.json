@@ -1,7 +1,6 @@
 {
   "dependencies": {
-    "joi": "^17.6.0",
-    "xlsx-to-json": "^0.3.0",
+    "xlsx": "^0.18.4",
     "xmlbuilder": "^15.1.1"
   }
 }
