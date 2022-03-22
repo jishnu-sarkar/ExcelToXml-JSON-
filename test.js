@@ -24,9 +24,9 @@ xlData.forEach((elements) => {
     if (element.includes("Account:")) {
       tempDataSet.Account[
         element.replace("Account:", "").trim().replace(/ /g, "")
-      ] = elements[element];
+      ] = elements[element].trim();
     } else {
-      tempDataSet[element.replace(/ /g, "")] = elements[element];
+      tempDataSet[element.replace(/ /g, "")] = elements[element].trim();
     }
   });
 
@@ -58,3 +58,14 @@ const xml = builder
 console.log(xml);
 
 //---------------------------------------------------------
+
+const fs = require("fs");
+
+// const content = "Some content!";
+
+fs.writeFile("generatedOutput.xml", xml, (err) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+});
